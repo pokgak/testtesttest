@@ -1,0 +1,25 @@
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: apps
+spec:
+  role: "test-eks-auto-20250224132437213000000002"
+  subnetSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: "test"
+        kubernetes.io/role/internal-elb: "1"
+        SubnetType: "Private"
+  securityGroupSelectorTerms:
+    - tags:
+        karpenter.sh/discovery: "test"
+  snatPolicy: Random  # or Disabled
+  networkPolicy: DefaultAllow  # or DefaultDeny
+  networkPolicyEventLogs: Disabled  # or Enabled
+  ephemeralStorage:
+    size: "50Gi"    # Range: 1-59000Gi or 1-64000G or 1-58Ti or 1-64T
+    # iops: 3000      # Range: 3000-16000
+    # throughput: 125 # Range: 125-1000
+  tags:
+    environment: "test"
+    usage: "eks"
+    nodepool: "apps"

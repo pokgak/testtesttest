@@ -1,0 +1,29 @@
+---
+namespace: argocd
+
+resources:
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.2/manifests/install.yaml
+
+patches:
+  - path: argocd-cm.yaml
+    target:
+      kind: ConfigMap
+      name: argocd-cm
+  - path: argocd-cmd-params-cm.yaml
+    target:
+      kind: ConfigMap
+      name: argocd-cmd-params-cm
+  - target:
+      kind: Deployment
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/nodeSelector
+        value:
+          eks.amazonaws.com/compute-type: auto
+  - target:
+      kind: StatefulSet
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/nodeSelector
+        value:
+          eks.amazonaws.com/compute-type: auto
