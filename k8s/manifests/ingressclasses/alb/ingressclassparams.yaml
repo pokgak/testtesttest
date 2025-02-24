@@ -20,3 +20,5 @@ spec:
       value: "test"
     - key: usage
       value: "eks"
+    - key: ingressclass
+      value: "alb"
