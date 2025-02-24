@@ -10,9 +10,9 @@ spec:
   subnets:
     matchTags:
       - key: kubernetes.io/role/internal-elb
-        value: "1"
+        value: ["1"]
       - key: SubnetType
-        value: "Private"
+        values: ["Private"]
   tags:
     cluster: "test"
     environment: "test"
