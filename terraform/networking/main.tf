@@ -9,4 +9,10 @@ terraform {
 
 provider "aws" {
   profile = "pokgak-prod"
+  default_tags {
+    tags = {
+      "Terraform" = "true"
+      "Usage"     = "test"
+    }
+  }
 }
