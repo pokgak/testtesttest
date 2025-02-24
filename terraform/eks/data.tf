@@ -28,3 +28,7 @@ data "aws_subnets" "private" {
     values = ["Private"]
   }
 }
+
+output "eks" {
+  value = module.eks
+}
