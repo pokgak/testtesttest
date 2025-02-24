@@ -8,9 +8,11 @@ spec:
     name: apps
   ipAddressType: ipv4
   subnets:
-    tags:
-      kubernetes.io/role/internal-elb: "1"
-      SubnetType: "Private"
+    matchTags:
+      - key: kubernetes.io/role/internal-elb
+        value: "1"
+      - key: SubnetType
+        value: "Private"
   tags:
     cluster: "test"
     environment: "test"
