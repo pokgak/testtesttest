@@ -27,6 +27,10 @@ module "eks" {
     }
   }
 
+  node_security_group_tags = {
+    "karpenter.sh/discovery" = "test"
+  }
+
   vpc_id     = data.aws_vpc.this.id
   subnet_ids = data.aws_subnets.private.ids
 
