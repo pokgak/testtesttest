@@ -1,0 +1,17 @@
+apiVersion: eks.amazonaws.com/v1
+kind: IngressClassParams
+metadata:
+  name: alb
+spec:
+  scheme: internet-facing
+  group:
+    name: apps
+  ipAddressType: ipv4
+  subnets:
+    tags:
+      kubernetes.io/role/internal-elb: "1"
+      SubnetType: "Private"
+  tags:
+    cluster: "test"
+    environment: "test"
+    usage: "eks"
