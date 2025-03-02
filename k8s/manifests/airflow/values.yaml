@@ -49,3 +49,4 @@ dags:
     branch: main
     rev: HEAD
     subPath: airflow-dags
+    period: 5s
