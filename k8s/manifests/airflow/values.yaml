@@ -32,3 +32,4 @@ migrateDatabaseJob:
   useHelmHooks: false
   applyCustomEnv: false
 
+webserverSecretKeySecretName: airflow
