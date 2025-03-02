@@ -12,6 +12,8 @@ ingress:
   web:
     enabled: true
     ingressClassName: alb
+    annotations:
+        alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
     hosts:
       - name: airflow.pokgak.xyz
 
