@@ -1,0 +1,16 @@
+---
+namespace: external-secrets
+
+helmCharts:
+  - name: external-secrets
+    releaseName: external-secrets
+    namespace: external-secrets
+    repo: https://charts.external-secrets.io
+    version: v0.14.1
+    includeCRDs: true
+    valuesInline:
+      fullnameOverride: external-secrets
+      controllerClass: aws
+      serviceAccount:
+        annotations:
+          eks.amazonaws.com/role-arn: arn:aws:iam::058264261389:role/test-external-secrets
