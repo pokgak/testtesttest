@@ -37,3 +37,15 @@ migrateDatabaseJob:
   applyCustomEnv: false
 
 webserverSecretKeySecretName: airflow
+
+dags:
+  persistence:
+    enabled: true
+    storageClassName: gp3
+    size: 1Gi
+  gitSync:
+    enabled: true
+    repo: https://github.com/pokgak/testtesttest.git
+    branch: main
+    rev: HEAD
+    subPath: airflow-dags
