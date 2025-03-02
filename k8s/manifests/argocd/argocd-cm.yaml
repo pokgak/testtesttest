@@ -4,8 +4,11 @@ metadata:
   name: argocd-cm
   namespace: argocd
 data:
+  url: "https://argocd.pokgak.xyz"
   users.anonymous.enabled: "false"
   admin.enabled: "true"
+
+  timeout.reconciliation: 30s
 
   # kustomize custom options
   kustomize.buildOptions: --enable-helm --load-restrictor LoadRestrictionsNone
