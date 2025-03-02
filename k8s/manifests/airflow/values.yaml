@@ -1,0 +1,32 @@
+fullnameOverride: airflow
+
+useStandardNaming: true
+
+image:
+  useDefaultImageForMigration: true
+
+nodeSelector:
+  eks.amazonaws.com/compute-type: auto
+
+ingress:
+  web:
+    enabled: true
+    ingressClassName: alb
+    hosts:
+      - name: airflow.pokgak.xyz
+
+executor: KubernetesExecutor
+allowPodLaunching: true
+
+workers:
+  replicas: 0 # using KubernetesExecutor
+
+# argocd workaround
+# https://airflow.apache.org/docs/helm-chart/stable/index.html#installing-the-chart-with-argo-cd-flux-rancher-or-terraform
+createUserJob:
+  useHelmHooks: false
+  applyCustomEnv: false
+migrateDatabaseJob:
+  useHelmHooks: false
+  applyCustomEnv: false
+

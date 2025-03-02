@@ -1,0 +1,8 @@
+namespace: airflow
+
+helmCharts:
+  - name: airflow
+    repo: https://airflow.apache.org
+    version: 1.15.0
+    namespace: airflow
+    valuesFile: values.yaml
