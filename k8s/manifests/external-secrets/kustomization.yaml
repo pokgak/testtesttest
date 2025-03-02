@@ -14,3 +14,6 @@ helmCharts:
       serviceAccount:
         annotations:
           eks.amazonaws.com/role-arn: arn:aws:iam::058264261389:role/test-external-secrets
+
+resources:
+  - clustersecretstore.yaml
