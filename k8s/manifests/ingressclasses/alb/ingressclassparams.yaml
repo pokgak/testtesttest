@@ -9,10 +9,10 @@ spec:
   ipAddressType: ipv4
   subnets:
     matchTags:
-      - key: kubernetes.io/role/internal-elb
+      - key: kubernetes.io/role/elb
         values: ["1"]
       - key: SubnetType
-        values: ["Private"]
+        values: ["Public"]
   tags:
     - key: cluster
       value: "test"
