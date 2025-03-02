@@ -2,6 +2,7 @@ namespace: airflow
 
 helmCharts:
   - name: airflow
+    releaseName: airflow
     repo: https://airflow.apache.org
     version: 1.15.0
     namespace: airflow
